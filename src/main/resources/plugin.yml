@@ -1,0 +1,14 @@
+name: Theomachy_septagram
+version: 5.0
+main: com.septagram.Theomachy.Theomachy
+api-version: 1.16
+
+commands:
+  t:
+    description: 신들의전쟁
+    permission:
+    usage: /<command>
+  x:
+    description: 신들의전쟁 타겟 등록
+    permission:
+    usage: /<command>
