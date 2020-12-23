@@ -19,7 +19,7 @@ public class Demeter extends Ability
     private final static String[] des= {
             "데메테르는 곡식의 신입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"수확",
-            "빵을 얻을 수 있습니다.",
+            "빵 10개를 얻을 수 있습니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"풍요",
             "항상 배고프지 않고, 체력 회복이 빠릅니다."};
 
@@ -27,7 +27,7 @@ public class Demeter extends Ability
     {
         super(playerName,"데메테르", 3, true, true, false, des);
 
-        this.cool1=30;
+        this.cool1=15;
         this.sta1=10;
 
         this.rank=2;

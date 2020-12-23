@@ -6,6 +6,7 @@ import com.septagram.Theomachy.DB.GameData;
 import com.septagram.Theomachy.Theomachy;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class CommandHandler {
 
@@ -16,8 +17,6 @@ public class CommandHandler {
                 AbilityInfo.showAllAbility(sender); break;
             case "black":
                 Blacklist.Module(sender); break;
-            case "con":
-                Convi.Module(sender); break;
             case "set":
                 GUISetting.Module(sender); break;
             case "help":
@@ -34,7 +33,7 @@ public class CommandHandler {
                 GameHandler.GameReady(sender, main); break;
             case "stop":
                 GameHandler.GameStop(sender); break;
-            case "clear":
+            case "clear": case "c":
                 CoolTimeClear.Module(sender); break;
             case "ability": case "a":
                 AbilitySet.Module(sender, data, main); break;
@@ -53,7 +52,12 @@ public class CommandHandler {
         Ability ability = GameData.PlayerAbility.get(playerName);
         if (ability != null)
         {
-            if (Bukkit.getPlayer(targetName)!=null)
+            boolean check=false;
+            for(Player p:Bukkit.getOnlinePlayers()){
+                if(p.getName().equals(targetName))
+                    check=true;
+            }
+            if (check)
                 ability.targetSet(sender, targetName);
             else
                 sender.sendMessage("온라인 플레이어가 아닙니다.  "+targetName);

@@ -32,10 +32,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -79,9 +76,9 @@ public class EventManager implements Listener
             String playerName = event.getPlayer().getName();
             Ability ability= GameData.PlayerAbility.get(playerName);
             if (ability != null && ability.activeType)
-            {
                 ability.T_Active(event);
-            }
+            if(ability != null)
+                ability.T_Check(event);
         }
     }
 
@@ -133,7 +130,7 @@ public class EventManager implements Listener
                         String key = player.getName();
                         Ability ability = GameData.PlayerAbility.get(key);
                         if (ability != null && ability.abilityCode == 6 ||
-                                ability.abilityCode == 101)
+                                ability.abilityCode == 101 || ability.abilityCode==136)
                             ability.T_Passive(event);
                     }
                 }else if(event.getDamager() instanceof Snowball
@@ -281,7 +278,7 @@ public class EventManager implements Listener
         if (GameHandler.Start)
         {
             Ability ability = GameData.PlayerAbility.get(event.getPlayer().getName());
-            if (ability != null && ability.abilityCode == 118)
+            if (ability != null && ability.abilityCode == 118 || ability.abilityCode==137)
                 ability.T_Passive(event);
         }
     }
@@ -292,12 +289,14 @@ public class EventManager implements Listener
         Theomachy.log.info(event.getReason());
     }
 
+    public static int diamond;
+
     @EventHandler
     public static void onBlockExplode(BlockExplodeEvent event){
         if(Theomachy.PROTECT){
            for(Block b:event.blockList()){
                if(b.getType().equals(Material.DIAMOND_BLOCK)){
-                   Bukkit.getScheduler().scheduleSyncDelayedTask(CommandManager.main, new DiamondProtectingTimer(b), 20);
+                   diamond=Bukkit.getScheduler().scheduleSyncDelayedTask(CommandManager.main, new DiamondProtectingTimer(b), 20);
                    for(Entity e:b.getWorld().getNearbyEntities(b.getLocation(), 10, 10, 10)){
                        if(e instanceof Item){
                            if(e.getType().equals(Material.DIAMOND_BLOCK)){
@@ -340,11 +339,21 @@ public class EventManager implements Listener
     }
 
     @EventHandler
+    public static void onPlayerChat(PlayerChatEvent event){
+        if(GameHandler.Start){
+            Ability ability = GameData.PlayerAbility.get(event.getPlayer().getName());
+            if(ability != null && (ability.abilityCode==133 || ability.abilityCode==134)){
+                ability.T_Passive(event);
+            }
+        }
+    }
+
+    @EventHandler
     public static void onInventoryClick(InventoryClickEvent event) {
         if(!ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":: 블랙리스트 ::") &&
                 !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::::: 능력 정보 ::::::::") &&
                 !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::: 설정 ::::::") &&
-                !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::::: 편의 기능 ::::::::") &&
+                !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::::: 카지노 ::::::::") &&
                 !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::::: 팁 ::::::::"))
             return;
         event.setCancelled(true);
@@ -366,7 +375,7 @@ public class EventManager implements Listener
                     }catch(Exception e) {}
                     Bukkit.broadcastMessage(ChatColor.GREEN+"【 알림 】 "+ChatColor.WHITE+y[0]+josa+" "+ChatColor.RED+"블랙리스트"+ChatColor.WHITE+"에 등록되었습니다.");
                     return;
-                }if(wool.getType().equals(Material.RED_WOOL)) {
+                }else if(wool.getType().equals(Material.RED_WOOL)) {
                     wool.setType(Material.LIME_WOOL);
                     String[] y=meta.getDisplayName().split(" ");
                     int num=Integer.parseInt(y[y.length-1]);
@@ -382,7 +391,7 @@ public class EventManager implements Listener
                 }
             }
 
-            if(ChatColor.stripColor(event.getView().getTitle()).equals(":::::::: 편의 기능 ::::::::")) {
+            if(ChatColor.stripColor(event.getView().getTitle()).equals(":::::::: 카지노 ::::::::")) {
 
                 Player p=(Player)event.getWhoClicked();
 

@@ -1,5 +1,7 @@
 package com.septagram.Timer;
 
+import com.septagram.Manager.Handler.EventManager;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
@@ -14,5 +16,6 @@ public class DiamondProtectingTimer implements Runnable{
     @Override
     public void run() {
         b.setType(Material.DIAMOND_BLOCK);
+        Bukkit.getScheduler().cancelTask(EventManager.diamond);
     }
 }

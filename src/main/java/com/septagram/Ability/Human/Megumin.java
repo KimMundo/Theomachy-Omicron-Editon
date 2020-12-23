@@ -22,7 +22,8 @@ public class Megumin extends Ability {
     private final static String[] des= {
             "이 능력은 메구밍!",
             ChatColor.YELLOW+"【일반】 "+ChatColor.WHITE+"폭렬 ♪",
-            "게임 중 한 번만 영창 후 전방의 블럭에 폭렬 마법을 날립니다.",
+            "게임 중 한 번만 영창 후 전방의",
+            "블럭에 폭렬 마법을 날립니다.",
             "사용 후 즉시 쓰러집니다."};
 
     public Megumin(String playerName, Theomachy theomachy) {

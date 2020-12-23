@@ -16,7 +16,7 @@ public class Pokego extends Ability {
     private final static String[] des= {
             "열심히 걸어다니면 능력을 잡을 수 있습니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"넌 내꺼야!",
-            "10000걸음 걸으면 무작위로 능력을 얻을 수 있습니다.",
+            "1000걸음 걸으면 무작위로 능력을 얻을 수 있습니다.",
             "이는 블랙리스트를 무시합니다."};
 
     public Pokego(String playerName, Theomachy theomachy) {
@@ -30,7 +30,7 @@ public class Pokego extends Ability {
 
     public void T_Passive(PlayerMoveEvent event) {
 
-        if(coolWalk==10000) {
+        if(coolWalk==1000) {
 
             Random r=new Random();
 
@@ -47,9 +47,7 @@ public class Pokego extends Ability {
             }
             event.getPlayer().sendMessage("능력이 할당되었습니다. /t help로 능력을 확인해보세요.");
         }else {
-
             coolWalk++;
-
         }
 
     }

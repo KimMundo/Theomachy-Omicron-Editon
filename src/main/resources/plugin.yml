@@ -12,3 +12,5 @@ commands:
     description: 신들의전쟁 타겟 등록
     permission:
     usage: /<command>
+  도박:
+    description: 신들의전쟁 도박

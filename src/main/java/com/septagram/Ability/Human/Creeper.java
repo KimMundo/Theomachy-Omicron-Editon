@@ -20,8 +20,8 @@ public class Creeper extends Ability
     private boolean plasma = false;
     private final static String[] des= {
             "크리퍼는 몬스터형 능력입니다.",
-            "블레이즈 로드를 통해 능력을 사용하면" ,
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"펑!",
+            "능력의 막대를 통해 능력을 사용하면" ,
             "크리퍼와 같은 폭발력의 폭발을 일으킵니다." ,
             "번개를 맞은 적이 있다면 폭발력이 두 배로 증가합니다.",
             "번개 카운팅은 사망 시 초기화됩니다."};

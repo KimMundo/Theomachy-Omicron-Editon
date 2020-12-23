@@ -42,7 +42,7 @@ public class Zet extends Ability {
 
                 Random r=new Random();
 
-                if(r.nextInt(4)>0){
+                if(r.nextInt(2)>0){
                     p.sendMessage("동력이 생겨 빨라집니다!");
                     p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, 1));
                 }

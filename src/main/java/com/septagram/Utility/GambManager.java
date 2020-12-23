@@ -30,12 +30,12 @@ public class GambManager {
                 player.getInventory().addItem(new ItemStack(Material.BLAZE_ROD, 1));
             }
             else if(rn==35 || rn<=79){
-                player.sendMessage ("당신의 운은 평범하군요! 철괴 4개를 드립니다.");
-                player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 4));
+                player.sendMessage ("당신의 운은 평범하군요! 철괴 3개를 드립니다.");
+                player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 3));
             }
             else if(rn==80||rn<=98){
-                player.sendMessage ("당신의 운은 평범하군요! 철괴 6개를 드립니다.");
-                player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 6));
+                player.sendMessage ("당신의 운은 평범하군요! 철괴 4개를 드립니다.");
+                player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 4));
             }
             else if(rn==99){
                 player.sendMessage(ChatColor.YELLOW+"헐... 대박, 당신의 운은 미쳤군요!");

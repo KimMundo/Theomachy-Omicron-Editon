@@ -10,9 +10,9 @@ public class Stance extends Ability
 {
     private final static String[] des= {
             "스탠스는 강한 의지를 갖고 있는 능력입니다.",
-            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"지구력",
+            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"강인함",
             "모든 데미지 증폭 효과를 무시하며,",
-            "모든 공격에 100% 확률로 밀려나지 않습니다." ,
+            "모든 공격에 절대로 밀려나지 않습니다." ,
             "하지만, 모든 자신의 방어 효과는 무시됩니다."};
 
     public Stance(String playerName)

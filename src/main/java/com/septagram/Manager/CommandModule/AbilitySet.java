@@ -169,6 +169,8 @@ public class AbilitySet
             GameData.PlayerAbility.put(playerName, new Akasha(playerName));
         else if (abilityCode == 17)
             GameData.PlayerAbility.put(playerName, new Horeundal(playerName, t));
+        else if (abilityCode == 18)
+            GameData.PlayerAbility.put(playerName, new JuJak(playerName));
 
         else if (abilityCode == 101)
             GameData.PlayerAbility.put(playerName, new Archer(playerName));
@@ -215,7 +217,7 @@ public class AbilitySet
         else if (abilityCode == 122)
             GameData.PlayerAbility.put(playerName, new Goldspoon(playerName));
         else if (abilityCode == 123)
-            GameData.PlayerAbility.put(playerName, new Bee(playerName));
+            GameData.PlayerAbility.put(playerName, new QueenBee(playerName));
         else if (abilityCode == 124)
             GameData.PlayerAbility.put(playerName, new Snow(playerName));
         else if (abilityCode == 125)
@@ -232,6 +234,16 @@ public class AbilitySet
             GameData.PlayerAbility.put(playerName, new Gasolin(playerName));
         else if (abilityCode == 131)
             GameData.PlayerAbility.put(playerName, new Zet(playerName));
+        else if (abilityCode == 132)
+            GameData.PlayerAbility.put(playerName, new Hermione(playerName));
+        else if (abilityCode == 133)
+            GameData.PlayerAbility.put(playerName, new Harry(playerName));
+        else if (abilityCode == 134)
+            GameData.PlayerAbility.put(playerName, new Gardener(playerName));
+        else if (abilityCode == 135)
+            GameData.PlayerAbility.put(playerName, new AcidArcher(playerName));
+        else if (abilityCode == 136)
+            GameData.PlayerAbility.put(playerName, new Galbi(playerName));
 
         else
         {

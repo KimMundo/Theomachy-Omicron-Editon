@@ -21,7 +21,8 @@ public class Witch extends Ability
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"저주 Ⅰ",
             "주변의 적에게 각종 디버프를 10초 간 적용합니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"저주 Ⅱ",
-            "자신을 공격한 상대는 7% 확률로 5초간 디버프에 걸리게 됩니다."};
+            "자신을 공격한 상대는 7% 확률로",
+            "5초 간 디버프에 걸리게 됩니다."};
 
     public Witch(String playerName)
     {
@@ -58,11 +59,11 @@ public class Witch extends Ability
                 for (Player e : targetList)
                 {
 
-                    e.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200,0),true);
-                    e.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200,0),true);
-                    e.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200,0),true);
-                    e.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200,0),true);
-                    e.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 200,0),true);
+                    e.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200,0));
+                    e.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 200,0));
+                    e.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200,0));
+                    e.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 200,0));
+                    e.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 200,0));
                     e.sendMessage("마녀에 의해 저주에 걸렸습니다.");
                 }
             }
@@ -81,11 +82,11 @@ public class Witch extends Ability
             if (rn == 0)
             {
                 Player target = (Player) event.getDamager();
-                target.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100,0),true);//*20
-                target.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100,0),true);
-                target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100,0),true);
-                target.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100,0),true);
-                target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 100,0),true);
+                target.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100,0));
+                target.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100,0));
+                target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100,0));
+                target.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 100,0));
+                target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 100,0));
                 target.sendMessage("마녀에 의해 저주가 걸렸습니다.");
             }
         }

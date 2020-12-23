@@ -20,7 +20,7 @@ public class Teleporter extends Ability
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"텔레포팅",
             "25칸 이내의 목표 지점으로 텔레포트합니다." ,
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"치환",
-            "타겟에 등록해 둔 자신의 팀원과 위치를 치환합니다.",
+            "타깃으로 등록해 둔 자신의 팀원과 위치를 치환합니다.",
             "목표 지정: /x <대상>"};
 
     public Teleporter(String playerName)
@@ -107,7 +107,7 @@ public class Teleporter extends Ability
                     player.sendMessage("플레이어가 온라인이 아닙니다.");
             }
             else
-                player.sendMessage("타겟이 지정되지 않았습니다. (타겟 등록법 : /x <Player>)");
+                player.sendMessage("타깃이 지정되지 않았습니다. (타깃 등록법 : /x <Player>)");
         }
     }
 
@@ -122,10 +122,10 @@ public class Teleporter extends Ability
             if (!playerName.equals(targetName))
             {
                 this.abilitytarget = targetName;
-                sender.sendMessage("타겟을 등록했습니다.   "+ChatColor.GREEN+targetName);
+                sender.sendMessage("타깃을 등록했습니다.   "+ChatColor.GREEN+targetName);
             }
             else
-                sender.sendMessage("자기 자신을 타겟으로 등록 할 수 없습니다.");
+                sender.sendMessage("자기 자신을 타깃으로 등록 할 수 없습니다.");
         }
         else
             sender.sendMessage("자신의 팀의 멤버가 아닙니다.");

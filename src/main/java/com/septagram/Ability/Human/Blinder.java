@@ -15,9 +15,11 @@ import org.bukkit.potion.PotionEffectType;
 public class Blinder extends Ability
 {
     private final static String[] des= {
-            "블라인더는 상대방의 시야를 가리는 능력입니다.",
+            "블라인더는 상대방의 시야를",
+            "가리는 능력입니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"블라인딩 Ⅰ",
-            "자신을 공격한 상대는 일정 확률로 시야가 가려집니다.",
+            "자신을 공격한 상대는 일정 확률로",
+            "시야가 가려집니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"블라인딩 Ⅱ",
             "주변의 적의 시야를 가립니다."};
 

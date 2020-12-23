@@ -23,7 +23,8 @@ public class Hermes extends Ability
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"민첩함",
             "이동 속도가 빠릅니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"비행",
-            "비행할 수 있으며, 점프하면서 비행하면 바로 날 수 있습니다.",
+            "10초 간 비행할 수 있으며,",
+            "점프하면서 비행하면 바로 날 수 있습니다.",
             "비행 중에는 낙하 데미지를 받지 않습니다."};
 
     public Hermes(String playerName)
@@ -58,7 +59,7 @@ public class Hermes extends Ability
             player.setAllowFlight(true);
             player.setFlying(true);
             Timer t = new Timer();
-            t.schedule(new HermesFlying(player),2000,1000);
+            t.schedule(new HermesFlying(player),7000,1000);
         }
     }
 

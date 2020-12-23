@@ -11,11 +11,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class Asclepius extends Ability
 {
     private final static String[] des= {
-            "아스킬리피어스는 의술의 신입니다.",
+            "아스클리피어스는 의술의 신입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"치료 Ⅰ",
             "자신의 체력을 완전히 회복합니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"치료 Ⅱ",
-            "주변에 있는 자신을 제외한 아군의 체력을 완전히 회복합니다."};
+            "주변에 있는 자신을 제외한 아군의",
+            " 체력을 완전히 회복합니다."};
 
     public Asclepius(String playerName)
     {

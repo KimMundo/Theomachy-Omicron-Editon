@@ -21,11 +21,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class Hephaestus extends Ability
 {
     private final static String[] des= {
-            "헤파이토스는 불의 신입니다.",
+            "헤파이토스는 대장장이의 신입니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"화염 속성",
-            "불에 관한 데미지를 일절 받지 않으나, 물에 들어가면 데미지를 입습니다.",
-            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"용암",
-            "블럭을 클릭하면 용암을 놓습니다. 놓은 용암은 2초 뒤 사라집니다.",};
+            "불에 관한 데미지를 일절 받지 않으나,",
+            "물에 들어가면 데미지를 입습니다.",
+            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"용암 생성",
+            "블럭을 클릭하면 용암을 놓습니다.",
+            "놓은 용암은 2초 뒤 사라집니다.",};
 
     public Hephaestus(String playerName)
     {

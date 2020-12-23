@@ -28,7 +28,8 @@ public class Hades extends Ability
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"나락 Ⅰ",
             "자신과 주변의 모든 것이 나락으로 떨어집니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"나락 Ⅱ",
-            "자신을 제외한 주변의 모든 것이 나락으로 떨어집니다."};
+            "자신을 제외한 주변의 모든 것이",
+            "나락으로 떨어집니다."};
 
     public Hades(String playerName)
     {

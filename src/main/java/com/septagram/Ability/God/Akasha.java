@@ -15,9 +15,11 @@ public class Akasha extends Ability {
     private final static String[] des= {
             "아카샤는 고통과 향락의 여신입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"향락",
-            "주변에 있는 아군에게 기쁨을 주어 빠르고 건강하게 합니다.",
+            "주변에 있는 아군에게 기쁨을 주어",
+            "빠르고 건강하게 합니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"고통",
-            "주변에 있는 적군에게 고통을 주어 혼란하게 합니다."};
+            "주변에 있는 적군에게 고통을 주고",
+            "혼란하게 합니다."};
 
     public Akasha(String playerName)
     {
@@ -68,6 +70,7 @@ public class Akasha extends Ability {
 
         if(CoolTimeChecker.Check(player, 2)&&PlayerInventory.ItemCheck(player, co, sta2)){
 
+            Skill.Use(player, co, sta2, 2, cool2);
             List<Player> entityList = GetPlayerList.getNearByNotTeamMembers(player, 10, 10, 10);
 
             for(Player e:entityList){

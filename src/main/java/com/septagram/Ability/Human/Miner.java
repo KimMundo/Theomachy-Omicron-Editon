@@ -18,9 +18,12 @@ public class Miner extends Ability
 
     private final static String[] des= {
             "광부는 곡괭이를 능숙하게 다룰 수 있습니다.",
-            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"효율적 광업",
-            "코블스톤을 캘 때 일정 3% 확률로 한 번에 10개를 얻을 수 있습니다.",
-            "금곡괭이를 제외한 곡괭이들의 데미지가 4로 고정됩니다."};
+            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"달인의 경지",
+            "코블스톤을 캘 때 일정 3% 확률로",
+            "한 번에 10개를 얻을 수 있습니다.",
+            "금곡괭이를 제외한 곡괭이들의 ",
+            "데미지가 4로 고정됩니다."
+    };
 
     public Miner(String playerName)
     {

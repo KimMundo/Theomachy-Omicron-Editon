@@ -13,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
-
 public class GUISetting {
 
     public static void Module(CommandSender sender) {

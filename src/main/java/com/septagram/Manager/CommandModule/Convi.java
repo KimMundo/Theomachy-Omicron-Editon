@@ -29,7 +29,7 @@ public class Convi {
 
     private static Inventory gui() {
 
-        Inventory con=Bukkit.createInventory(null, 9, ChatColor.BLACK+":::::::: 편의 기능 ::::::::");
+        Inventory con=Bukkit.createInventory(null, 9, ChatColor.BLACK+":::::::: 카지노 ::::::::");
 
         ItemStack gam=new ItemStack(Material.GOLD_INGOT);
         ItemMeta met1=gam.getItemMeta();

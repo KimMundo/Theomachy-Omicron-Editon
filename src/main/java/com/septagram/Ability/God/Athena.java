@@ -25,7 +25,8 @@ public class Athena extends Ability
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"강화",
             "게임 당 2번만 인챈트 테이블을 얻습니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"지혜",
-            "다른 사람이 죽으면 경험치를 얻습니다. 자신이 죽으면 경험치가 사라집니다."};
+            "다른 사람이 죽으면 경험치를 얻습니다.",
+            "자신이 죽으면 경험치가 사라집니다."};
 
     public Athena(String playerName)
     {

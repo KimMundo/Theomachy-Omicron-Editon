@@ -18,8 +18,10 @@ public class Midoriya extends Ability {
     public final static String[] des= {
             "미도리야는 UA에 재학 중입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"원 포 올",
-            "능력 사용 후 상대를 가격하면 원 포 올을 쓸 수 있습니다.",
-            "원 포 올을 쓰고 난 뒤에는 각종 디버프에 시달립니다."};
+            "능력 사용 후 상대를 가격하면",
+            "원 포 올을 쓸 수 있습니다.",
+            "원 포 올을 쓰고 난 뒤에는",
+            "각종 디버프에 시달립니다."};
 
     public Midoriya(String playerName) {
         super(playerName, "미도리야", 121, true, false, false, des);
@@ -48,7 +50,8 @@ public class Midoriya extends Ability {
     private void leftAction(Player player) {
         if(CoolTimeChecker.Check(player, 0)&&PlayerInventory.ItemCheck(player, co, sta1)&&!Ready){
             Ready=true;
-            player.sendMessage(ChatColor.YELLOW+"원"+ChatColor.GREEN+" 포 "+ChatColor.AQUA+"올"+ChatColor.WHITE+"이 준비되었습니다아!!!!!!!!!");
+            player.sendMessage(ChatColor.YELLOW+"원"+ChatColor.GREEN+" 포 "+ChatColor.AQUA+"올"+
+                    ChatColor.WHITE+"이 준비되었습니다!");
         }
     }
 
@@ -59,7 +62,8 @@ public class Midoriya extends Ability {
         if(player.getItemInHand().getType().equals(Material.AIR) && player.getName().equals(this.playerName)){
             if(CoolTimeChecker.Check(player, 0)&&PlayerInventory.ItemCheck(player, co, sta1)) {
                 if(Ready) {
-                    player.sendMessage(ChatColor.YELLOW+"원"+ChatColor.GREEN+" 포 "+ChatColor.AQUA+"올"+ChatColor.WHITE+"이 가동되었습니다아!!!!!!!!!");
+                    player.sendMessage(ChatColor.YELLOW+"원"+ChatColor.GREEN+" 포 "+ChatColor.AQUA+"올"
+                            +ChatColor.WHITE+"이 가동되었습니다!");
                     d.damage(200);
                     player.getWorld().strikeLightningEffect(d.getLocation());
 
@@ -70,10 +74,9 @@ public class Midoriya extends Ability {
 
                     Skill.Use(player, co, sta1, 0, cool1);
 
-
                     Ready=false;
                 }else {
-                    player.sendMessage("아직 원 포 올의 준비가 되어있지 않군요.");
+                    player.sendMessage("아직 원 포 올의 준비가 되어있지 않습니다.");
                 }
             }
         }

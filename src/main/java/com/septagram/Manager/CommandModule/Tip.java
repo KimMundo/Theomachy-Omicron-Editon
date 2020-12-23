@@ -27,7 +27,8 @@ public class Tip {
         ItemMeta met=gam.getItemMeta();
         met.setDisplayName(ChatColor.YELLOW+"[TIP]");
         List<String> lor1=new ArrayList<>();
-        lor1.add(ChatColor.WHITE+"블레이즈 로드는 제작대에서 나무 막대를 세로로 일렬로");
+        lor1.add(ChatColor.WHITE+"블레이즈 로드는 제작대에서");
+        lor1.add(ChatColor.WHITE+"나무 막대를 세로로 일렬로");
         lor1.add(ChatColor.WHITE+"놓으면 만들 수 있습니다.");
         met.setLore(lor1);
         gam.setItemMeta(met);

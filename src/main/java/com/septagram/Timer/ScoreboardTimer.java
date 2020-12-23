@@ -32,7 +32,7 @@ public class ScoreboardTimer implements Runnable{
                         ob.getScore(ChatColor.DARK_AQUA+"사용 가능!").setScore(2);
                     }
                     if(CoolTime.COOL0.containsKey(p.getName())){
-                        int cool0=CoolTime.COOL0.get(p.getName());
+                        int cool0=CoolTime.COOL0.get(p.getName())-1;
                         ob.getScore(ChatColor.AQUA+"【일반】 "+ ChatColor.WHITE+"쿨타임").setScore(3);
                         ob.getScore(ChatColor.WHITE+""+cool0/60+"분 "+cool0%60+"초").setScore(2);
                     }
@@ -40,7 +40,7 @@ public class ScoreboardTimer implements Runnable{
                     ob.getScore(ChatColor.GOLD+"능력").setScore(5);
                     ob.getScore(ChatColor.WHITE+ ReturnAbilityName.name(a.abilityCode)).setScore(4);
                     if(CoolTime.COOL1.containsKey(p.getName())){
-                        int cool1=CoolTime.COOL1.get(p.getName());
+                        int cool1=CoolTime.COOL1.get(p.getName())-1;
                         ob.getScore(ChatColor.AQUA+"【일반】 "+ ChatColor.WHITE+"쿨타임").setScore(3);
                         ob.getScore(ChatColor.WHITE+""+cool1/60+"분 "+cool1%60+"초").setScore(2);
                     }else{
@@ -50,7 +50,7 @@ public class ScoreboardTimer implements Runnable{
 
 
                     if(CoolTime.COOL2.containsKey(p.getName())){
-                        int cool1=CoolTime.COOL2.get(p.getName());
+                        int cool1=CoolTime.COOL2.get(p.getName())-1;
                         ob.getScore(ChatColor.RED+"【고급】 "+ ChatColor.WHITE+"쿨타임").setScore(1);
                         ob.getScore(ChatColor.WHITE+""+cool1/60+"분 "+cool1%60+"초").setScore(0);
                     }else{

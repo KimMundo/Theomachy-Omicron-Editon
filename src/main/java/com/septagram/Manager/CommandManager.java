@@ -1,5 +1,6 @@
 package com.septagram.Manager;
 
+import com.septagram.Manager.CommandModule.Convi;
 import com.septagram.Manager.Handler.CommandHandler;
 import com.septagram.Theomachy.Theomachy;
 import org.bukkit.ChatColor;
@@ -13,6 +14,7 @@ public class CommandManager implements CommandExecutor {
         main=t;
         t.getCommand("t").setExecutor(this);
         t.getCommand("x").setExecutor(this);
+        t.getCommand("도박").setExecutor(this);
     }
 
     @Override
@@ -35,8 +37,9 @@ public class CommandManager implements CommandExecutor {
                 sender.sendMessage(ChatColor.YELLOW+("/t  black    ")+ChatColor.WHITE+("블랙리스트 시스템을 엽니다."));
                 sender.sendMessage(ChatColor.YELLOW+("/t  set       ")+ChatColor.WHITE+("GUI 설정 시스템을 엽니다."));
                 sender.sendMessage(ChatColor.YELLOW+("/t  tip       ")+ChatColor.WHITE+("게임에 필요한 TIP을 봅니다."));
+                sender.sendMessage(ChatColor.YELLOW+("/t  dia(d)       ")+ChatColor.WHITE+("팀 별로 다이아몬드 블럭을 설정합니다."));
                 sender.sendMessage(ChatColor.YELLOW+("/x  ")+ChatColor.RED+("<Player>     ")+ChatColor.WHITE+("해당 플레이어를 자신의 타겟으로 등록합니다"));
-                sender.sendMessage(ChatColor.AQUA+"【안내】"+ChatColor.WHITE+"/t help, /t con, /t tip 이외의 명령은 모두 OP 전용입니다.");
+                sender.sendMessage(ChatColor.AQUA+"【안내】"+ChatColor.WHITE+"/t help, /t tip, /도박, /x 이외의 명령은 모두 OP 전용입니다.");
             }
             else
                 CommandHandler.T_Handler(sender, data, main);
@@ -48,6 +51,10 @@ public class CommandManager implements CommandExecutor {
                 sender.sendMessage(ChatColor.YELLOW+("/x  ")+ChatColor.RED+("<Player>     ")+ChatColor.WHITE+("해당 플레이어를 자신의 타겟으로 등록합니다"));
             else
                 CommandHandler.X_Handler(sender, data);
+        }
+
+        else if (label.equalsIgnoreCase("도박")){
+            Convi.Module(sender);
         }
 
         return true;

@@ -15,11 +15,14 @@ import org.bukkit.inventory.ItemStack;
 public class Blacksmith extends Ability
 {
     private final static String[] des= {
-            "대장장이는 다양한 광물을 만들어 낼 수 있는 능력입니다.",
+            "대장장이는 다양한 광물을 만들어",
+            "낼 수 있는 능력입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"철 연성",
-            "코블스톤을 소비하여 철괴 10개를 획득할 수 있습니다.",
+            "코블스톤을 소비하여 철괴 10개를",
+            "얻을 수 있습니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"금강석 연성",
-            "철괴를 소비하여 다이아 5개를 얻을 수 있습니다."};
+            "철괴를 소비하여 다이아 5개를",
+            "얻을 수 있습니다."};
 
     public Blacksmith(String playerName)
     {

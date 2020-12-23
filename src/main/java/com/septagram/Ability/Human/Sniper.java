@@ -1,5 +1,6 @@
 package com.septagram.Ability.Human;
 
+import java.util.Random;
 import java.util.Timer;
 
 import com.septagram.Ability.Ability;
@@ -14,24 +15,26 @@ import org.bukkit.Material;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class Sniper extends Ability
 {
-    private final int coolTime0=70;
-    private final int material=4;
-    private final int stack0=1;
     public boolean ready = false;
     public boolean sniping = false;
     private final static String[] des= {
-            "저격수는 빠른 화살을 이용해 상대방을 공격하는 능력입니다.",
-            "게임 시작시 활 1개 화살 10개를 지급합니다. ",
+            "저격수는 빠른 화살을 이용해",
+            "상대방을 공격하는 능력입니다.",
+            "게임 시작시 활 1개 화살 10개를 지급합니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"스나이핑",
-            "활을 들고 앉은 채(shift) 좌클릭하면 4초 뒤 스나이핑 모드가 활성화됩니다." ,
-            "스나이핑 모드일 때는 쏜 화살이 타겟방향으로 보이지 않는 속도로",
-            "날아가며 맞은 적은 약 100~200의 데미지를 입습니다."};
+            "활을 들고 앉은 채(shift) 좌클릭하면",
+            "4초 뒤 스나이핑 모드가 활성화됩니다." ,
+            "스나이핑 모드일 때는 쏜 화살이",
+            "타겟방향으로 보이지 않는 속도로 날아가며",
+            "맞은 적은 약 100~200의 데미지를 입습니다.",
+            "앉은 채로 화살을 발사해야 능력이 발동됩니다."};
 
     public Sniper(String playerName)
     {
@@ -70,15 +73,16 @@ public class Sniper extends Ability
     @Override
     public void T_Passive(ProjectileLaunchEvent event, Player player)
     {
-        if (this.sniping && (CoolTimeChecker.Check(player, 0)&&PlayerInventory.ItemCheck(player, co, stack0)))
+        if (this.sniping && (CoolTimeChecker.Check(player, 0)&&PlayerInventory.ItemCheck(player, co, sta1)))
         {
             Entity entity = event.getEntity();
             if (entity instanceof Arrow)
             {
-                Skill.Use(player, co, stack0, 0, coolTime0);
-                player.getInventory().remove(new ItemStack(Material.ARROW, 1));
+                Skill.Use(player, co, sta1, 0, cool1);
+                player.getInventory().removeItem(new ItemStack(Material.ARROW));
                 entity.remove();
-                Arrow arrow = (Arrow) event.getEntity();
+
+                Arrow arrow = player.launchProjectile(Arrow.class);
                 arrow.setVelocity(player.getEyeLocation().getDirection().multiply(100));
             }
         }
@@ -91,4 +95,5 @@ public class Sniper extends Ability
         player.getInventory().addItem(new ItemStack(Material.BOW, 1));
         player.getInventory().addItem(new ItemStack(Material.ARROW, 10));
     }
+
 }

@@ -1,5 +1,6 @@
 package com.septagram.Utility;
 
+import com.septagram.Manager.CommandModule.Blacklist;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -21,16 +22,22 @@ public class CodeHelper
     private static void showCode(CommandSender sender)
     {
 
-        sender.sendMessage(ChatColor.GOLD+" 【 신 】 ");
+        sender.sendMessage(ChatColor.GOLD+"【 신 】");
 
         for(int i=1;i<=AbilityData.GOD_ABILITY_NUMBER;i++) {
-            sender.sendMessage(ChatColor.YELLOW + "【 "+i+" 】"+ChatColor.WHITE+ReturnAbilityName.name(i));
+            if(Blacklist.Blacklist.contains(i))
+                sender.sendMessage(ChatColor.RED + "【 "+i+" 】"+ChatColor.WHITE+ReturnAbilityName.name(i));
+            else
+                sender.sendMessage(ChatColor.YELLOW + "【 "+i+" 】"+ChatColor.WHITE+ReturnAbilityName.name(i));
         }
 
-        sender.sendMessage(ChatColor.AQUA+" 【 인간 】 ");
+        sender.sendMessage(ChatColor.AQUA+"【 인간 】 ");
 
         for(int i=101;i<=AbilityData.HUMAN_ABILITY_NUMBER+100;i++) {
-            sender.sendMessage(ChatColor.YELLOW + "【 "+i+" 】"+ChatColor.WHITE+ReturnAbilityName.name(i));
+            if(Blacklist.Blacklist.contains(i))
+                sender.sendMessage(ChatColor.RED + "【 "+i+" 】"+ChatColor.WHITE+ReturnAbilityName.name(i));
+            else
+                sender.sendMessage(ChatColor.YELLOW + "【 "+i+" 】"+ChatColor.WHITE+ReturnAbilityName.name(i));
         }
 
     }

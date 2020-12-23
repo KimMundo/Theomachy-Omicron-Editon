@@ -13,9 +13,7 @@ import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.*;
 
 public class Ability
 {
@@ -88,6 +86,8 @@ public class Ability
 
     public void T_PassiveSnow(EntityDamageByEntityEvent event) {}
 
+    public void T_Passive(PlayerChatEvent event) {}
 
+    public void T_Check(PlayerInteractEvent event){}
 
 }

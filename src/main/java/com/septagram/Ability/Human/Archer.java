@@ -18,10 +18,11 @@ public class Archer extends Ability
 {
     private final static String[] des= {
             "활을 아주 잘 다루는 궁수입니다.",
-            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"정확함",
+            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"능숙함",
             "활 공격 데미지가 1.3배로 상승합니다.",
             ChatColor.AQUA+"【일반/고급】 "+ChatColor.WHITE+"화살/활 생성",
-            "일반능력으로 화살을, 고급 능력으로 활을 만듭니다."};
+            "일반능력으로 화살을,",
+            "고급 능력으로 활을 만듭니다."};
 
     public Archer(String playerName)
     {

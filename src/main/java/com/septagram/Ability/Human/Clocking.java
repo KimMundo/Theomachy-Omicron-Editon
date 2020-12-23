@@ -24,9 +24,12 @@ public class Clocking extends Ability
             "클로킹은 일정 시간 자신의 몸을 숨길 수 있는 능력입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"감추기",
             "자신의 모습을 잠시 감출 수 있습니다.",
-            "감춘 상태에서 상대방을 공격할 시 다시 모습이 나타나게 되며,",
+            "감춘 상태에서 상대방을 공격하면",
+            "다시 모습이 나타나게 되며,",
             "공격 당한 상대는 20% 확률로 사망합니다."};
+
     Theomachy main;
+
     public static int clockingTimer;
     public Clocking(String playerName, Theomachy theomachy)
     {

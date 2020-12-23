@@ -33,7 +33,7 @@ public class Help {
             ItemMeta b=abdes.getItemMeta();
             ItemMeta c=abcool1.getItemMeta();
             ItemMeta d=abcool2.getItemMeta();
-            ItemMeta e=rank.getItemMeta();
+            ItemMeta e;
 
             a.setDisplayName(ChatColor.AQUA+"【능력 이름】 "+ChatColor.WHITE+ability.abilityName);
             b.setDisplayName(ChatColor.DARK_AQUA+"【능력 설명】");
@@ -122,18 +122,42 @@ public class Help {
 
                     i.setItem(13, abcool1);
                 }
-            }if (!ability.activeType && ability.passiveType) {
-            abcool1=new ItemStack(Material.CLOCK);
+            }if (ability.passiveType) {
+                if(ability.activeType && ability.sta2==-1){
+                    abcool1=new ItemStack(Material.CLOCK);
+                    abcool2=new ItemStack(Material.CLOCK);
 
-            List<String> clore=new ArrayList<>();
-            c.setDisplayName(ChatColor.GREEN+"~ 패시브 능력 ~");
-            clore.add(ChatColor.WHITE+"능력 설명을 확인하세요.");
-            c.setLore(clore);
+                    List<String> clore=new ArrayList<>();
+                    c.setDisplayName(ChatColor.GREEN+"~ 일반 능력 ~");
+                    clore.add( ChatColor.WHITE+"쿨타임: "+ability.cool1+" 초 소요");
+                    clore.add(ChatColor.WHITE+"조약돌: "+ability.sta1+"개 소모");
+                    abcool1.setItemMeta(c);
 
-            abcool1.setItemMeta(c);
+                    List<String> dlore=new ArrayList<>();
+                    d.setDisplayName(ChatColor.GREEN+"~ 패시브 능력 ~");
+                    dlore.add(ChatColor.WHITE+"능력 설명을 확인하세요.");
+                    d.setLore(dlore);
 
-            i.setItem(13, abcool1);
-        }
+                    abcool2.setItemMeta(d);
+
+                    i.setItem(9, abcool1);
+                    i.setItem(17, abcool2);
+
+                }else{
+                    abcool1=new ItemStack(Material.CLOCK);
+
+                    List<String> clore=new ArrayList<>();
+                    c.setDisplayName(ChatColor.GREEN+"~ 패시브 능력 ~");
+                    clore.add(ChatColor.WHITE+"능력 설명을 확인하세요.");
+                    c.setLore(clore);
+
+                    abcool1.setItemMeta(c);
+
+                    i.setItem(13, abcool1);
+                }
+
+
+            }
 
             Player p=(Player)sender;
 

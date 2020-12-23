@@ -17,13 +17,15 @@ import org.bukkit.inventory.ItemStack;
 public class Snow extends Ability {
 
     private final static String[] des= {
-            "말 그대로 미친 눈사람입니다.",
-            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"폭설",
-            "눈을 맞추면 70%의 확률로 공격 지수만큼의 데미지를 줍니다.",
+            "강력한 눈덩이를 구사하는 능력입니다.",
+            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"눈싸움",
+            "눈을 맞추면 70%의 확률로 ",
+            "공격 지수만큼의 데미지를 줍니다.",
             "공격 지수가 죽을 때마다 최대 7까지 상승합니다.",
             "공격 지수는 능력의 막대 좌클릭으로 확인할 수 있습니다.",
             "눈덩이를 맞춰도 상대가 밀려나지 않습니다.",
-            "게임 시작 시 눈덩이 8개를 받습니다.",
+            "게임 시작 시 눈덩이 1개를 받으며 눈덩이는",
+            "던질 때마다 무한으로 지급됩니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"얼음 속성",
             "불에 의한 데미지를 2배로 받습니다."};
 
@@ -39,7 +41,7 @@ public class Snow extends Ability {
 
     private int attack=0;
 
-    public void T_Active(PlayerInteractEvent event){
+    public void T_Check(PlayerInteractEvent event){
         Player player=event.getPlayer();
         if(PlayerInventory.InHandItemCheck(player, st)){
             switch(EventFilter.PlayerInteract(event)){
@@ -60,6 +62,7 @@ public class Snow extends Ability {
         Player p=(Player)event.getEntity();
         event.setCancelled(true);
         p.damage(attack);
+        p.getInventory().addItem(new ItemStack(Material.SNOWBALL));
     }
 
     public void T_Passive(EntityDamageEvent event){

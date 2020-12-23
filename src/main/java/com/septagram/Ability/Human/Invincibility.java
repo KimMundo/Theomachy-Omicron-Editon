@@ -17,8 +17,8 @@ public class Invincibility extends Ability
 {
 
     private final static String[] des= {
-            "무적은 일정시간 데미지를 받지 않을 수 있는 능력입니다.",
-            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"천하장사",
+            "무적은 일정 시간 데미지를 받지 않을 수 있는 능력입니다.",
+            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"천하무적",
             "일정 시간 자신을 무적 상태로 만듭니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"숨 돌리기",
             "자신에게 체력 회복 버프를 시전합니다."};

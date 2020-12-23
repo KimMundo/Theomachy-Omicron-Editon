@@ -23,9 +23,11 @@ public class Artemis extends Ability
     private final static String[] des= {
             "아르테미스는 사냥과 달의 여신입니다.",
             ChatColor.AQUA+"【일반/고급】 "+ChatColor.WHITE+"화살/활 생성",
-            "일반능력으로 화살을, 고급 능력으로 활을 만듭니다.",
+            "일반능력으로 화살을, ",
+            "고급 능력으로 활을 만듭니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"사냥 기술",
-            "화살로 공격당한 플레이어는 15%의 확률로 즉사합니다."};
+            "화살로 공격당한 플레이어는 ",
+            "15%의 확률로 즉사합니다."};
 
     public Artemis(String playerName)
     {

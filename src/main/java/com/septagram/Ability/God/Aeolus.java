@@ -20,11 +20,14 @@ public class Aeolus extends Ability {
 
     Theomachy main;
 
-    private final static String[] des= {"아이올로스는 폭풍과 바람의 신입니다.",
+    private final static String[] des= {
+            "아이올로스는 폭풍과 바람의 신입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"자연 바람",
-            "주변에 있는 아군에게 상쾌한 바람으로 빠르고 건강하게 합니다.",
+            "주변에 있는 아군에게 상쾌한 바람을 통해",
+            "빠르고 건강하게 합니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"폭풍",
-            "주변에 있는 적을 강한 바람으로 밀어내고 느리고 약하게 합니다."};
+            "주변에 있는 적을 강한 바람으로",
+            "밀어내고 느리고 약하게 합니다."};
 
     public Aeolus(String playerName, Theomachy main)
     {

@@ -24,13 +24,13 @@ public class Voodoo extends Ability
     private String targetName=null;
     private Block postSign=null;
     private final static String[] des= {
-            "부두술사는 팻말을 이용해서 상대를 타격할 수 있는 능력입니다.",
+            "부두술사는 팻말을 이용해 적을 공격하는 능력입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"부두술",
             "팻말에 타격할 상대의 이름을 적으면 ",
             "그 아이디를 가진 플레이어는 팻말과 연결되며" ,
             "팻말을 두들겨 패면 대상 플레이어가 데미지를 입습니다." ,
             "설치후 7초동안 효과가 지속되며 7초 후에",
-            " 자동으로 팻말이 부숴집니다." ,
+            "자동으로 팻말이 부숴집니다." ,
             "데미지는 무기의 영향을 받지 않습니다." ,
             "쿨타임은 팻말을 든 채 좌클릭하면 좀 더 ",
             "쉽게 확인 할 수 있습니다."};
@@ -69,7 +69,7 @@ public class Voodoo extends Ability
         }
     }
 
-    public void T_Active(PlayerInteractEvent event)
+    public void T_Check(PlayerInteractEvent event)
     {
         if (this.postSign != null)
         {

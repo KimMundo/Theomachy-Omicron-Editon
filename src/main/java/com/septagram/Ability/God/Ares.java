@@ -14,7 +14,7 @@ public class Ares extends Ability
             "아레스는 전쟁의 신입니다.",
             ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"잔혹함",
             "모든 공격 데미지가 1.5배 상승합니다." ,
-            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"예리함",
+            ChatColor.YELLOW+"【패시브】 "+ChatColor.WHITE+"민첩함",
             "10% 확률로 공격을 회피합니다"};
 
     public Ares(String playerName)

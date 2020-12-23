@@ -25,10 +25,13 @@ public class Wizard extends Ability
     final static String[] des= {
             "마법사는 신의 능력을 빌려 쓰는 능력입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"날려버리기",
-            "일반능력은 주변 10칸 모든 플레이어를 자신이 보는 방향으로 모두 날려버립니다.",
+            "일반능력은 주변 10칸 모든 플레이어를",
+            "자신이 보는 방향으로 모두 날려버립니다.",
             ChatColor.RED+"【고급】 "+ChatColor.WHITE+"신의 심판",
-            "주변의 사람들을 공중으로 띄운 후 번개를 떨어뜨립니다.",
-            "고급능력 발동 시 패널티로 자신의 체력이 반으로 줄어듭니다."};
+            "주변의 사람들을 공중으로 띄운 후",
+            "번개를 떨어뜨립니다.",
+            "발동 시 패널티로 자신의",
+            "체력이 반으로 줄어듭니다."};
 
     private Theomachy main;
 
@@ -134,7 +137,7 @@ public class Wizard extends Ability
                 for (Player e : targetList)
                 {
                     e.setVelocity(v);
-                    e.sendMessage(ChatColor.RED+"마법사의 고급능력에 당했습니다!");
+                    e.sendMessage(ChatColor.RED+"마법사에게 당했습니다!");
                 }
                 Bukkit.getScheduler().scheduleSyncDelayedTask(this.main, new WizardDisasterTimer(targetList, player), 4);
             }

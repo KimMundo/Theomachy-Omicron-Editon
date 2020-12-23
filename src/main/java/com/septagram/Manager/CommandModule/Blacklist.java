@@ -18,9 +18,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class Blacklist {
 
-    public static List<Integer> GodCanlist=new ArrayList<Integer>();
-    public static List<Integer> HumanCanlist=new ArrayList<Integer>();
-    public static List<Integer> Blacklist=new ArrayList<Integer>();
+    public static List<Integer> GodCanlist=new ArrayList<>();
+    public static List<Integer> HumanCanlist=new ArrayList<>();
+    public static List<Integer> Blacklist=new ArrayList<>();
     public static int Canlist;
 
     public static void Module(CommandSender sender) {
@@ -32,7 +32,7 @@ public class Blacklist {
 
     //추가라벨
     private static Inventory blackgui() {
-        Inventory gui=Bukkit.createInventory(null, 54, ChatColor.BLACK+":: 블랙리스트 ::");
+        Inventory gui=Bukkit.createInventory(null, 63, ChatColor.BLACK+":: 블랙리스트 ::");
 
 
         int[] god=new int[AbilityData.GOD_ABILITY_NUMBER];
@@ -50,7 +50,7 @@ public class Blacklist {
         for(int i=1;i<=god.length;i++) {
             wool[i-1]=new ItemStack(Material.WHITE_WOOL);
             meta[i]=wool[i-1].getItemMeta();
-            meta[i].setDisplayName(ChatColor.WHITE+ReturnAbilityName.name(i) + " : "+String.valueOf(i));
+            meta[i].setDisplayName(ChatColor.WHITE+ReturnAbilityName.name(i) + " : "+i);
             if(!Blacklist.contains(i)) {wool[i-1].setType(Material.LIME_WOOL);}
             else {wool[i-1].setType(Material.RED_WOOL);}
             wool[i-1].setItemMeta(meta[i]);

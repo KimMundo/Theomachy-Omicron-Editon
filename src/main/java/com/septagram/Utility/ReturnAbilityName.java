@@ -3,7 +3,7 @@ package com.septagram.Utility;
 public class ReturnAbilityName {
     public static String name(int n){
 
-        String e="";
+        String e;
 
         switch(n){
             case 1: e="제우스"; break;
@@ -23,12 +23,13 @@ public class ReturnAbilityName {
             case 15: e="아이올로스"; break;
             case 16: e="아카샤"; break;
             case 17: e="호른달"; break;
+            case 18: e="주작"; break;
 
             case 101: e="아처"; break;
             case 102: e="광부";break;
             case 103: e="스탠스";break;
             case 104: e="텔레포터";break;
-            case 105:e="봄버";break;
+            case 105: e="봄버";break;
             case 106: e="크리퍼";break;
             case 107: e="마법사";break;
             case 108: e="암살자";break;
@@ -55,6 +56,11 @@ public class ReturnAbilityName {
             case 129: e="다크니스";break;
             case 130: e="가솔린기관";break;
             case 131: e="제트기관";break;
+            case 132: e="헤르미온느";break;
+            case 133: e="해리포터";break;
+            case 134: e="정원사";break;
+            case 135: e="독화살아처";break;
+            case 136: e="명륜진사";break;
 
             default: e=""; break;
         }

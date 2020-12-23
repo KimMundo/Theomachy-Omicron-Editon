@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
@@ -24,7 +25,7 @@ public final class Theomachy extends JavaPlugin {
     public static boolean AUTO_SAVE = false;
     public static boolean ANIMAL = true;
     public static boolean MONSTER = true;
-    public static boolean FAST_START = false;
+    public static boolean FAST_START = true;
     public static int DIFFICULTY = 1;
     public static boolean GAMB = true;
     public static boolean PROTECT = true;
@@ -38,18 +39,28 @@ public final class Theomachy extends JavaPlugin {
 
     public void onEnable()
     {
-
+        //업데이트 체크
         UpdateChecker.check(this.getDescription().getVersion());
 
         log.info("[신들의 전쟁] 플러그인이 활성화되었습니다.   "+ PluginData.buildnumber+"  "+PluginData.version);
         log.info("[신들의 전쟁] 플러그인의 기본 설정을 적용 중입니다.");
 
-        saveResource("blacklist.yml", true);
-
         cm=new CommandManager(this);
-        ShapedRecipe recipe = new ShapedRecipe(new ItemStack(Material.BLAZE_ROD)).shape(new String[]{"|","|","|"}).setIngredient('|', Material.STICK);
+
+        //블레이즈 로드 레시피 추가
+        ItemStack blaze=new ItemStack(Material.BLAZE_ROD);
+        ItemMeta meta=blaze.getItemMeta();
+        meta.setDisplayName(ChatColor.RED+"능력의 막대");
+        blaze.setItemMeta(meta);
+        ShapedRecipe recipe = new ShapedRecipe(blaze).shape(new String[]{"|","|","|"}).
+                setIngredient('|', Material.STICK);
         getServer().addRecipe(recipe);
+
+
         getServer().getPluginManager().registerEvents(new EventManager(), this);
+
+        //블랙리스트 불러오기 및 처리
+        saveResource("blacklist.yml", true);
         FileInputStream fis;
         InputStreamReader isr;
         BufferedReader br;
@@ -71,12 +82,13 @@ public final class Theomachy extends JavaPlugin {
             if(!Blacklist.Blacklist.contains(i)) Blacklist.GodCanlist.add(i);
         }for(int i=101;i<=AbilityData.HUMAN_ABILITY_NUMBER+100;i++) {
         if(!Blacklist.Blacklist.contains(i)) Blacklist.HumanCanlist.add(i);
-    }
+        }
 
         log.info("[신들의 전쟁] 등록된 능력");
         log.info("[신들의 전쟁] 신: "+Blacklist.GodCanlist.size()+", 인간: "+Blacklist.HumanCanlist.size());
         log.info("[신들의 전쟁] 총합: "+(Blacklist.GodCanlist.size()+Blacklist.HumanCanlist.size()));
 
+        //컨피그 처리
         log.info("[신들의 전쟁] 게임의 설정 불러오는 중입니다.");
         getConfig().options().copyDefaults(true);
         saveConfig();
@@ -97,7 +109,7 @@ public final class Theomachy extends JavaPlugin {
         log.info("[신들의 전쟁] ========================================");
         log.info("[신들의 전쟁] 게임 시작 시 인벤토리 클리어 : "+INVENTORY_CLEAR);
         log.info("[신들의 전쟁] 게임 시작 시 스카이블럭 기본 아이템 지급 : "+GIVE_ITEM);
-        log.info("[신들의 전쟁] 게임 시작 시 몬스터,동물,아이템삭제 : "+ENTITIES_REMOVE);
+        log.info("[신들의 전쟁] 게임 시작 시 엔티티 제거 : "+ENTITIES_REMOVE);
         log.info("[신들의 전쟁] 리스폰 시 침대 무시 : "+IGNORE_BED);
         log.info("[신들의 전쟁] 빠른 시작 : "+FAST_START);
         log.info("[신들의 전쟁] 도박 허용 : "+GAMB);
@@ -111,10 +123,12 @@ public final class Theomachy extends JavaPlugin {
         log.info("[신들의 전쟁] ========================================");
 
         Bukkit.getConsoleSender().sendMessage("원작자: "+ ChatColor.WHITE+"칠각별(septagram)");
+        Bukkit.getConsoleSender().sendMessage("재수정자: "+ ChatColor.WHITE+"델타(humint2003)");
 
     }
 
     public void onDisable() {
+        //블랙리스트 작성
         BufferedWriter bw;
         try {
             bw=new BufferedWriter(new FileWriter(file));
@@ -130,8 +144,25 @@ public final class Theomachy extends JavaPlugin {
             log.info("앗.. 블랙리스트 파일 관련 오류가 발생했어요.");
         }
 
-
         log.info("[신들의 전쟁] 블랙리스트가 파일로 저장되었습니다. 절대로 플러그인 폴더 내에 blacklist.yml을 건들지 마십시오.");
+
+        //컨피그 수정
+        getConfig().set("Clear Inventory", INVENTORY_CLEAR);
+        getConfig().set("Give Skyblock Item", GIVE_ITEM);
+        getConfig().set("Remove Entity", ENTITIES_REMOVE);
+        getConfig().set("Ignore Bed", IGNORE_BED);
+        getConfig().set("Autosave", AUTO_SAVE);
+        getConfig().set("Spawn Animal", ANIMAL);
+        getConfig().set("Spawn Monster", MONSTER);
+        getConfig().set("Difficulty", DIFFICULTY);
+        getConfig().set("Fast Start", FAST_START);
+        getConfig().set("Use Gambling", GAMB);
+        getConfig().set("Protect Diamond from Explosion", PROTECT);
+        getConfig().set("Forbid Break Diamond with Diamond Pickaxe", FORBID);
+        getConfig().set("Scoreboard Information", SCOREBOARD);
+
+        getConfig().options().copyDefaults(true);
+        saveConfig();
 
     }
 }

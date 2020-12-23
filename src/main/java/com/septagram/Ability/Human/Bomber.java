@@ -19,7 +19,7 @@ public class Bomber extends Ability
     private Location tntLocation;
     private final static String[] des= {
             "봄버는 폭탄을 다루는 능력입니다.",
-            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"폭파",
+            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"기폭",
             "좌클릭으로 해당 위치에 보이지 않는 TNT를 설치하며" ,
             "우클릭으로 어디서든 폭발시킬 수 있습니다."};
 

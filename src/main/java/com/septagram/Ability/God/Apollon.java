@@ -21,9 +21,11 @@ public class Apollon extends Ability
             "아폴론은 태양의 신입니다.",
             ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"햇볕",
             "밤을 낮으로 바꿉니다.",
-            ChatColor.RED+"【고급】 "+ChatColor.WHITE+"자외선",
-            "밤을 낮으로 바꾸고 온갖 물을 증발시키며, 다른 사람을 태웁니다.",
-            "화염속성의 능력자, 그늘, 물속에 있는 플레이어는 피해를 입지 않습니다."};
+            ChatColor.RED+"【고급】 "+ChatColor.WHITE+"뙤약볕",
+            "밤을 낮으로 바꾸고 온갖 물을 증발시키며",
+            "다른 사람을 태웁니다.",
+            "화염 속성의 능력자, 그늘, 물속에 있는",
+            "플레이어는 피해를 입지 않습니다."};
 
     public Apollon(String playerName)
     {

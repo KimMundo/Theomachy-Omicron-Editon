@@ -2,10 +2,7 @@ package com.septagram.Ability.God;
 
 import com.septagram.Ability.Ability;
 import com.septagram.Theomachy.DB.GameData;
-import com.septagram.Utility.CoolTimeChecker;
-import com.septagram.Utility.EventFilter;
-import com.septagram.Utility.PlayerInventory;
-import com.septagram.Utility.Skill;
+import com.septagram.Utility.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -18,8 +15,9 @@ public class Morpious extends Ability {
 
     private final static String[] des= {
             "모르피우스는 잠의 신입니다.",
-            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"수면",
-            "목표로 지정한 적을 1분간 잠들게 합니다.",
+            ChatColor.AQUA+"【일반】 "+ChatColor.WHITE+"수면 오라",
+            "목표로 지정한 적을 30초 간 잠들게 합니다.",
+            "목표가 자신의 주변에 있어야 사용 가능합니다.",
             "목표 지정: /x <대상>"};
 
     private String abilitytarget;
@@ -61,11 +59,20 @@ public class Morpious extends Ability {
 
                     else{
                         Player target = Bukkit.getPlayer(abilitytarget);
-                        Skill.Use(player, co, sta1, 0, cool1);
-                        player.sendMessage(ChatColor.GRAY+"목표를 잠재웠습니다!");
-                        target.sendMessage(ChatColor.GRAY+"착한 어린이는 일찍 자고 일찍 일어나야 해요~");
-                        target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 1200,0), true);
-                        target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 1200, 3), true);
+
+                        if(target==null){
+                            player.sendMessage(abilitytarget+" 님은 현재 서버에 없는 것 같습니다..");
+                        }else{
+                            if(GetPlayerList.getNearByNotTeamMembers(player, 10, 10, 10).contains(player)){
+                                Skill.Use(player, co, sta1, 0, cool1);
+                                player.sendMessage(ChatColor.GRAY+"목표를 잠재웠습니다!");
+                                target.sendMessage(ChatColor.GRAY+"모르피우스가 당신을 재웠습니다!");
+                                target.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20*30,0));
+                                target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20*30, 3));
+                            }else{
+                                player.sendMessage("목표가 주변에 있어야 합니다!");
+                            }
+                        }
                     }
 
                 }
@@ -83,13 +90,8 @@ public class Morpious extends Ability {
     {
         if (!playerName.equals(targetName))
         {
-            if(Bukkit.getPlayer(targetName)!=null){
-                this.abilitytarget = targetName;
-                sender.sendMessage("타겟을 등록했습니다.   "+ChatColor.GREEN+targetName);
-            }else{
-                sender.sendMessage("그런 사람은 없습니다.   "+ChatColor.RED+targetName);
-            }
-
+           this.abilitytarget = targetName;
+           sender.sendMessage("타겟을 등록했습니다.   "+ChatColor.GREEN+targetName);
         }
         else
             sender.sendMessage("자기 자신을 목표로 등록 할 수 없습니다.");
