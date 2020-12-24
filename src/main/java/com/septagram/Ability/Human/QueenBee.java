@@ -111,6 +111,8 @@ public class QueenBee extends Ability {
                             target.sendMessage(ChatColor.YELLOW+"페로몬"+ChatColor.WHITE+"에 유혹당했습니다!");
 
                             target.teleport(player);
+                        }else{
+                            player.sendMessage("대상이 너무 멀리 있어 실패했습니다.");
                         }
                     }
                 }
