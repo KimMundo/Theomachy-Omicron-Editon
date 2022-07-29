@@ -39,8 +39,8 @@ public class GambManager {
             }
             else if(rn==99){
                 player.sendMessage(ChatColor.YELLOW+"헐... 대박, 당신의 운은 미쳤군요!");
-                player.sendMessage(ChatColor.AQUA+"다이아몬드 22개에 당첨되셨습니다.");
-                player.getInventory().addItem(new ItemStack(Material.DIAMOND, 22));
+                player.sendMessage(ChatColor.AQUA+"다이아몬드 2개에 당첨되셨습니다.");
+                player.getInventory().addItem(new ItemStack(Material.DIAMOND, 2));
             }
         }else{
             player.sendMessage(ChatColor.RED+"조약돌이 부족합니다! 정신차려임마.");
